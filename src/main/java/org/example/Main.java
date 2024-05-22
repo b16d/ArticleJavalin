@@ -20,13 +20,14 @@ public class Main {
             }));
             config.registerPlugin(new SwaggerPlugin());
             config.registerPlugin(new ReDocPlugin());
-                config.router.apiBuilder(() -> {
+            config.router.apiBuilder(() -> {
                     path("/api/v1/", () -> {
                             get("getAllUsers", userControler::getAllUser);
-                            post("AddUser", userControler::addUser);
+                            post("addUser", userControler::addUser);
+                            get("exist", userControler::existUser);
                     });
                 });
-        }).start(7070);
+        }).start(8080);
 
         System.out.println("Hello world!");
     }
